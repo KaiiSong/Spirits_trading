@@ -1,0 +1,13 @@
+---
+title: "Data_Sorting"
+author: "Kai Song"
+date: "2023-12-13"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(readr)
+Countries_V202211 <- read_csv("Spirits_trading/Gravity_csv_V202211/Countries_V202211.csv")
+Gravity_V202211 <- read_csv("Spirits_trading/Gravity_csv_V202211/Gravity_V202211.csv")
+library(dplyr)
+```
