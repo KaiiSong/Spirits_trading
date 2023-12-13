@@ -7,7 +7,14 @@ output: html_document
 
 ```{r setup, include=FALSE}
 library(readr)
-Countries_V202211 <- read_csv("Spirits_trading/Gravity_csv_V202211/Countries_V202211.csv")
-Gravity_V202211 <- read_csv("Spirits_trading/Gravity_csv_V202211/Gravity_V202211.csv")
+Gravity_V202211 <- read_csv("Gravity_csv_V202211/Gravity_V202211.csv")
 library(dplyr)
+library(skimr)
+```
+
+```{r}
+gravity <- Gravity_V202211[, c("year", "country_id_o", "country_id_d", "iso3num_o", "iso3num_d","tradeflow_baci", "tradeflow_comtrade_d", "tradeflow_comtrade_o", "tradeflow_imf_d", "tradeflow_imf_o", "manuf_tradeflow_baci")]
+gravity_naignored <- gravity[rowSums(is.na(gravity[, c("tradeflow_baci", "tradeflow_comtrade_d", "tradeflow_comtrade_o", "tradeflow_imf_d", "tradeflow_imf_o", "manuf_tradeflow_baci")])) < 6, ]
+gravity_select_row <- gravity_naignored[gravity_naignored$year >= 2000 & gravity_naignored$year <= 2022, ]
+
 ```
