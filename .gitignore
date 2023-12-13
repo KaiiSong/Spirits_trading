@@ -1,0 +1,9 @@
+# Ignore R workspace files and history
+.RData
+.Rhistory
+*.csv
+*.txt
+*.pdf
+
+# Ignore R project settings
+.Rproj.user/
